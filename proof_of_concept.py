@@ -3,6 +3,20 @@ import os
 from datetime import datetime
 import json
 
+
+# Web deployment configuration
+if 'DYNO' in os.environ:  # Heroku
+    st.set_page_config(page_title="LLM-to-Scrypto Demo", layout="wide")
+elif 'STREAMLIT_SHARING' in os.environ:  # Streamlit Cloud
+    st.set_page_config(page_title="LLM-to-Scrypto Demo", layout="wide")
+
+# Add web demo header
+st.markdown("""
+<div style='text-align: center; padding: 1rem; background: linear-gradient(90deg, #00ff88, #0066cc); border-radius: 10px; margin-bottom: 2rem;'>
+    <h1 style='color: white; margin: 0;'>🚀 LLM-to-Scrypto Live Demo</h1>
+    <p style='color: white; margin: 0;'>Interactive Proof of Concept - Deployed on Web</p>
+</div>
+""", unsafe_allow_html=True)
 st.set_page_config(page_title="LLM-to-Scrypto PROOF OF CONCEPT", page_icon="🚀")
 
 st.title("🚀 LLM-to-Scrypto Generation - PROOF OF CONCEPT")
